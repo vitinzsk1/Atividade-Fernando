@@ -1,0 +1,31 @@
+# Classe base Pessoa
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def exibir_detalhes(self):
+        return f"Nome: {self.nome}, Idade: {self.idade}"
+
+# Classe derivada Estudante
+class Estudante(Pessoa):
+    def __init__(self, nome, idade, ra):
+        super().__init__(nome, idade)
+        self.ra = ra
+
+    def verificar_ra(self, ra_fornecido):
+        if self.ra == ra_fornecido:
+            return f"O RA {ra_fornecido} pertence ao estudante {self.nome}."
+        else:
+            return f"O RA {ra_fornecido} não pertence ao estudante {self.nome}."
+
+# Criando um objeto da classe Estudante
+meu_ra = "1234567890"
+estudante = Estudante("Vitor Gomees", 20, meu_ra)
+
+# Exibindo detalhes do estudante
+print(estudante.exibir_detalhes())
+
+# Verificando o RA
+print(estudante.verificar_ra("1234567890"))
+print(estudante.verificar_ra("0987654321"))
